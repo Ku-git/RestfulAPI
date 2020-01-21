@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ku.api.entity.Grade;
-import com.ku.api.service.GradeService;
+import com.ku.api.model.GradeModel;
+import com.ku.api.service.implementation.GradeService;
 
 @RestController
 public class APIController {
@@ -21,12 +22,12 @@ public class APIController {
 	private GradeService gradeService;
 
 	@RequestMapping("/grades")
-	public List<Grade> hello() {
+	public List<GradeModel> hello() {
 		return gradeService.getAll();
 	}
 	
 	@GetMapping("/grades/{id}")
-	public Grade getById(@PathVariable Integer id) {
+	public GradeModel getById(@PathVariable Integer id) {
 		return gradeService.find(id);
 	}
 
